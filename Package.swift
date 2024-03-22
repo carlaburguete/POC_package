@@ -8,8 +8,11 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "POC_package",
-            targets: ["Security Utils", "UI Components"]),
+            name: "Security Utils",
+            targets: ["SecurityUtilsTarget"]),
+        .library(
+            name: "UI Components",
+            targets: ["UIComponentsTarget"])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -19,10 +22,14 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "Security Utils",
-            dependencies: []),
+            name: "SecurityUtilsTarget",
+            dependencies: [],
+            path: "Security Utils/iOS"
+        ),
         .target(
-            name: "UI Components",
-            dependencies: [])
+            name: "UIComponentsTarget",
+            dependencies: [],
+            path: "UI Components/iOS"
+        )
     ]
 )
